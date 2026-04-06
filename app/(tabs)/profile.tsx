@@ -132,7 +132,7 @@ export default function ProfileScreen() {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.keluarBtn} onPress={() => {}}>
+            <TouchableOpacity style={styles.keluarBtn} onPress={() => router.push('/login')}>
               <Text style={styles.keluarBtnText}>Keluar</Text>
               <Ionicons
                 name="exit-outline"

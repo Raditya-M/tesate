@@ -166,7 +166,7 @@ export default function LoginScreen() {
               activeOpacity={1}
               onPressIn={handleAdminPressIn}
               onPressOut={handleAdminPressOut}
-              onPress={() => {}}
+              onPress={() => router.push('/(admin)')}
             >
               <Text style={styles.adminText}>Masuk Admin!</Text>
             </TouchableOpacity>
