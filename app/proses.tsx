@@ -38,8 +38,8 @@ export default function ProsesP() {
           <Text style={styles.sectionTitle}>Pesanan Kamu</Text>
 
           <View style={styles.receiptRow}>
-            <Text style={styles.receiptLabel}>{qty ? `${qty}x ${title}` : "2x Sate Ayam Cik"}</Text>
-            <Text style={styles.receiptValue}>Rp {qty ? (Number(total) - 7000).toLocaleString('id-ID') : "30.000"}</Text>
+            <Text style={styles.receiptLabel}>{qty ? `${qty}x ${title}` : "1x Sate Madura"}</Text>
+            <Text style={styles.receiptValue}>Rp {qty ? (Number(total) - 7000).toLocaleString('id-ID') : "25.000"}</Text>
           </View>
 
           <View style={styles.receiptRow}>
@@ -56,7 +56,7 @@ export default function ProsesP() {
 
           <View style={styles.receiptRow}>
             <Text style={styles.totalLabel}>Total Biaya</Text>
-            <Text style={styles.totalValue}>Rp {total ? Number(total).toLocaleString('id-ID') : "37.000"}</Text>
+            <Text style={styles.totalValue}>Rp {total ? Number(total).toLocaleString('id-ID') : "32.000"}</Text>
           </View>
         </View>
 

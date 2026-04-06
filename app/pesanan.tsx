@@ -35,8 +35,8 @@ export default function Pembayaran() {
         <View style={styles.receiptContainer}>
           <View style={styles.receiptRow}>
             {/* Pakai data dinamis atau fallback ke default */}
-            <Text style={styles.receiptLabel}>{qty ? `${qty}x ${title}` : "2x Sate Ayam Cik"}</Text>
-            <Text style={styles.receiptValue}>Rp {price && qty ? (Number(price) * Number(qty)).toLocaleString('id-ID') : "30.000"}</Text>
+            <Text style={styles.receiptLabel}>{qty ? `${qty}x ${title}` : "1x Sate Madura"}</Text>
+            <Text style={styles.receiptValue}>Rp {price && qty ? (Number(price) * Number(qty)).toLocaleString('id-ID') : "25.000"}</Text>
           </View>
           <View style={styles.receiptRow}>
             <Text style={styles.receiptLabel}>Biaya Aplikasi</Text>
@@ -51,7 +51,7 @@ export default function Pembayaran() {
 
           <View style={styles.receiptRow}>
             <Text style={styles.totalLabel}>Total Biaya</Text>
-            <Text style={styles.totalValue}>Rp {total ? Number(total).toLocaleString('id-ID') : "37.000"}</Text>
+            <Text style={styles.totalValue}>Rp {total ? Number(total).toLocaleString('id-ID') : "32.000"}</Text>
           </View>
 
           <View style={styles.receiptRow}>
