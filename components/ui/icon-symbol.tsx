@@ -1,29 +1,40 @@
-// Fallback for using MaterialIcons on Android and web.
+// components/ui/icon-symbol.tsx
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SymbolWeight, SymbolViewProps } from 'expo-symbols';
 import { ComponentProps } from 'react';
 import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
 
-type IconMapping = Record<SymbolViewProps['name'], ComponentProps<typeof MaterialIcons>['name']>;
-type IconSymbolName = keyof typeof MAPPING;
+// Tipe data untuk pemetaan ikon
+type IconMapping = Record<string, ComponentProps<typeof MaterialIcons>['name']>;
 
 /**
- * Add your SF Symbols to Material Icons mappings here.
- * - see Material Icons in the [Icons Directory](https://icons.expo.fyi).
- * - see SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
+ * Pemetaan dari nama SF Symbols (iOS) ke Material Icons (Android/Web).
+ * Jika kamu menambah ikon di TabLayout, pastikan namanya terdaftar di sini.
  */
 const MAPPING = {
+  // Bawaan Template
   'house.fill': 'home',
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  'chevron.left': 'chevron-left',
+  'plus': 'add',
+  'minus': 'remove',
+
+  // Tambahan untuk aplikasi Sate Mang Saswi
+  'info.circle': 'info',
+  'cart.fill': 'shopping-cart',
+  'bell': 'notifications',
+  'person.circle': 'person',
 } as IconMapping;
 
+export type IconSymbolName = keyof typeof MAPPING;
+
 /**
- * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
- * This ensures a consistent look across platforms, and optimal resource usage.
- * Icon `name`s are based on SF Symbols and require manual mapping to Material Icons.
+ * Komponen IconSymbol:
+ * Menggunakan SF Symbols di iOS (jika tersedia secara native) 
+ * dan fallback ke MaterialIcons di Android/Web.
  */
 export function IconSymbol({
   name,
@@ -37,5 +48,8 @@ export function IconSymbol({
   style?: StyleProp<TextStyle>;
   weight?: SymbolWeight;
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
+  // Jika nama tidak ada di MAPPING, tampilkan ikon 'help' sebagai tanda error
+  const iconName = MAPPING[name] || 'help-outline';
+  
+  return <MaterialIcons color={color} size={size} name={iconName} style={style} />;
 }
